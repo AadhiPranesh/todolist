@@ -1,18 +1,24 @@
-import { useState } from "react";
+const TodoItems = ({ task, toggleTask, deleteTask }) => {
+  const { id, title, completed } = task;
 
-const TodoItems=(props)=>{
-    const {title,completed} = props.task;
-  const [process,setprocess]=useState()
-const stage=completed==="complete"?true:false
-const handleprocess=(e)=>{
-setprocess(e.target.value)
-}
-    return (
-            <div className={`todo-item ${completed}`}>
-            <input type="checkbox" checked={stage} onChange={handleprocess}   />
-            <p>{title}</p>
+  return (
+    <div className={`todo-item ${completed ? 'completed' : 'pending'}`}>
+      <input
+        type="checkbox"
+        checked={completed}
+        onChange={() => toggleTask(id)}
+        className="checkbox"
+      />
+      <p className="task-title">{title}</p>
+      <button
+        onClick={() => deleteTask(id)}
+        className="delete-btn"
+        title="Delete task"
+      >
+        🗑️
+      </button>
+    </div>
+  );
+};
 
-            </div>    
-        )
-      }
 export default TodoItems;

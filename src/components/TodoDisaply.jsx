@@ -1,19 +1,24 @@
 import TodoItems from "./TodoItems";
 
-const TodoDisplay=(props)=>{
-const {task} = props;
-    return(
-<div >
-   <h3 >Todo List</h3>
-   <div className="todo-display" >
-   {
+const TodoDisplay = ({ tasks, toggleTask, deleteTask }) => {
+  return (
+    <div className="todo-display-container">
+      {tasks.length === 0 ? (
+        <p className="empty-message">✨ Your task list is empty. Create your first task above!</p>
+      ) : (
+        <div className="todo-display">
+          {tasks.map((item) => (
+            <TodoItems
+              key={item.id}
+              task={item}
+              toggleTask={toggleTask}
+              deleteTask={deleteTask}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
-    task.map((item)=>(
-        <TodoItems key={item.id} task={item}
-        />
-    ))
-   }</div>
-</div>
-)
-}
 export default TodoDisplay;
