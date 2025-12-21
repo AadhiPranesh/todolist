@@ -47,8 +47,7 @@ Task Manager Pro is a beautifully crafted todo list application featuring **glas
 - Proper color contrast ratios
 
 ## 🎬 Demo
-
-![Task Manager Pro Screenshot](./screenshot.png)
+https://todolist-vert-eight.vercel.app/
 
 ### Live Features:
 - Animated background with pulsing gradients
